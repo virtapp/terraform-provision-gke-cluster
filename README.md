@@ -14,5 +14,5 @@ Prerequisites
     terraform apply -auto-approve
     
     kubectl config get-contexts && 
-    aws eks --region us-east-2 update-kubeconfig --name "education-eks-GcR1ym71"
+    gcloud container clusters get-credentials $(terraform output -raw kubernetes_cluster_name) --region $(terraform output -raw region)
     terraform destroy -auto-approve
